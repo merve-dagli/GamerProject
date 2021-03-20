@@ -11,29 +11,42 @@ namespace GamerProject.Concrete
     public class SalesManager : ISalesServices
     {
 
-        public void sales(Game game, Campaign campaign,Store store)
+        public void sales(Game game, Campaign campaign,Store store,Gamer gamer)
         {
 
             double discount = game.GamePrice;
 
-            if (campaign.CampaignDiscount == 20)
+            if (gamer.GamerFirstName == "Merve" && gamer.GamerLastName == "Dağlı" && gamer.TcNo == "11111")
             {
-                discount = (discount * 0.80);
+                if (campaign.CampaignDiscount == 20)
+                {
+                    discount = (discount * 0.80);
 
-                Console.WriteLine(" İsimli Oyun " + game.GamePrice + " TL'den " + " % " + campaign.CampaignDiscount + " " + campaign.CampaignName + " ile " + discount + " TL fiyata "+store.StoreName+" üzerinden satışı gerçekleşmiştir.");
-            }
-            else if(campaign.CampaignDiscount == 30)
-            {
-                discount = (discount * 0.70);
-                Console.WriteLine(" İsimli Oyun " + game.GamePrice + " TL'den " + " % " + campaign.CampaignDiscount + " " + campaign.CampaignName + " ile " + discount + " TL fiyata "+store.StoreName+" üzerinden satışı gerçekleşmiştir.");
+                    Console.WriteLine("Sn. " + gamer.GamerFirstName + " için " + game.GameName + " isimli oyun " + game.GamePrice + " TL'den " + " % " + campaign.CampaignDiscount + " " + campaign.CampaignName + " ile " + discount + " TL fiyata " + store.StoreName + " üzerinden satışı gerçekleşmiştir.");
+                }
+                else if (campaign.CampaignDiscount == 30)
+                {
+                    discount = (discount * 0.70);
+                    Console.WriteLine("Sn. "+gamer.GamerFirstName + " için " + game.GameName + " isimli oyun " + game.GamePrice + " TL'den " + " % " + campaign.CampaignDiscount + " " + campaign.CampaignName + " ile " + discount + " TL fiyata " + store.StoreName + " üzerinden satışı gerçekleşmiştir.");
 
+                }
+                else
+                {
+
+                    Console.WriteLine("Sn. " + gamer.GamerFirstName + " için " + game.GameName + " isimli oyun " + game.GamePrice + " TL fiyata " + store.StoreName + " üzerinden satışı gerçekleşmiştir." + " " + campaign.CampaignName);
+                }
             }
             else
             {
-
-                Console.WriteLine(" İsimli Oyun " + game.GamePrice + " TL fiyata " + store.StoreName + " üzerinden satışı gerçekleşmiştir." + " " + campaign.CampaignName);
+                Console.WriteLine(gamer.GamerFirstName+" "+gamer.GamerLastName+" isimli kayıt bulunamamıştır.");
             }
+            }
+
+
+
+          
 
         }
     }
-}
+
+

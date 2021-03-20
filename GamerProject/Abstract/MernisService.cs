@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace GamerProject.Abstract
 {
-    public interface ISalesServices
+    interface MernisService
     {
-        void sales(Game game, Campaign campaign,Store store,Gamer gamer);
-
+        bool Validate(Gamer gamer);
     }
 }

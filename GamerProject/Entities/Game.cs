@@ -11,8 +11,7 @@ namespace GamerProject.Entities
     public class Game : IEntity
     {
 
-        public string GameName { get; set; }
-        public string GameType { get; set; }
+        public string GameName { get; set; } 
         public double GamePrice { get; set; }
 
     }
